@@ -7,6 +7,7 @@
 import turtle
 import os
 
+
 # desenhar raquete
 def draw_paddle(paddle, x, y):
     return (paddle.speed(),
@@ -56,6 +57,7 @@ hud.hideturtle()
 hud.goto(0, 260)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
+
 # mover raquete 1
 def paddle_1_down():
     y = paddle_1.ycor()
@@ -75,6 +77,7 @@ def paddle_1_up():
     paddle_1.sety(y)
 
 
+# mover raquete 2
 def paddle_2_up():
     y = paddle_2.ycor()
     if y < 250:
@@ -82,6 +85,7 @@ def paddle_2_up():
     else:
         y = 250
     paddle_2.sety(y)
+
 
 def paddle_2_down():
     y = paddle_2.ycor()
@@ -99,7 +103,6 @@ screen.onkeypress(paddle_1_down, "s")
 screen.onkeypress(paddle_2_up, "Up")
 screen.onkeypress(paddle_2_down, "Down")
 
-
 while True:
     screen.update()
 
@@ -112,7 +115,7 @@ while True:
         os.system("afplay bounce.wav&")
         ball.sety(290)
         ball.dy *= -1
-    
+
     # colisão com parede inferior
     if ball.ycor() < -280:
         os.system("afplay bounce.wav&")
@@ -132,28 +135,20 @@ while True:
         ball.dx *= -1
 
     # colisão com raquete 1
-<<<<<<< Updated upstream
+
     if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
         ball.dx *= -1
-        ball.setx(-325)
-        os.system("afplay bounce.wav&")   
-    
-=======
-    if ball.xcor() < -330 and ball.ycor() < paddle_1.ycor() + 50 and ball.ycor() > paddle_1.ycor() - 50:
-        ball.dx *= -1     
         ball.setx(-325)
         if ball.ycor() <= paddle_1.ycor() + 50 or ball.ycor() >= paddle_1.ycor() - 50:  # alterei aqui
             ball.dy *= -1  # alterei aqui
         os.system("afplay bounce.wav&")
 
->>>>>>> Stashed changes
     # colisão com raquete 2
     if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         ball.dx *= -1
         ball.setx(325)
-<<<<<<< Updated upstream
         os.system("afplay bounce.wav&")
-=======
+
         if ball.ycor() <= paddle_2.ycor() + 50 or ball.ycor() >= paddle_2.ycor() - 50:  # alterei aqui
             ball.dy *= -1  # alterei aqui
         os.system("afplay bounce.wav&")
@@ -179,4 +174,3 @@ while True:
 
         if time_for_close == 0:
             break
->>>>>>> Stashed changes
