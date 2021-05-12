@@ -6,7 +6,7 @@
 
 import turtle
 import os
-
+from winsound import PlaySound, SND_ASYC
 
 # desenhar raquete
 def draw_paddle(paddle, x, y):
@@ -130,7 +130,10 @@ while True:
             score_2 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")
+        # Sound Exit
+        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")  # On MAC
+        os.system("aplay 258020__kodack__arcade-bleep-sound.wav&")  # On Linux
+        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYC)  # On Windows
         ball.goto(0, 0)
         ball.dx *= -1
 
@@ -141,17 +144,21 @@ while True:
         ball.setx(-325)
         if ball.ycor() <= paddle_1.ycor() + 50 or ball.ycor() >= paddle_1.ycor() - 50:  # alterei aqui
             ball.dy *= -1  # alterei aqui
-        os.system("afplay bounce.wav&")
+        # Sound Exit
+        os.system("afplay afplay bounce.wav&")  # On MAC
+        os.system("aplay afplay bounce.wav&")  # On Linux
+        PlaySound("afplay bounce.wav", SND_ASYC)  # On Windows
 
     # colisão com raquete 2
     if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         ball.dx *= -1
         ball.setx(325)
-        os.system("afplay bounce.wav&")
-
         if ball.ycor() <= paddle_2.ycor() + 50 or ball.ycor() >= paddle_2.ycor() - 50:  # alterei aqui
-            ball.dy *= -1  # alterei aqui
-        os.system("afplay bounce.wav&")
+            ball.dy *= -1 
+        # Sound Exit
+        os.system("afplay afplay bounce.wav&")  # On MAC
+        os.system("aplay afplay bounce.wav&")  # On Linux
+        PlaySound("afplay bounce.wav", SND_ASYC)  # On Window
 
     # Anuncio de vitória
     time_for_close = 500
