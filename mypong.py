@@ -135,11 +135,13 @@ while True:
 
 
     # colisão com raquete 1
-    if ball.xcor() < -330 and ball.ycor() < paddle_1.ycor() + 50 and ball.ycor() > paddle_1.ycor() - 50:
-        ball.dx *= -1     
+    if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
+        ball.dx *= -1
+        ball.setx(-325)
         os.system("afplay bounce.wav&")   
     
     # colisão com raquete 2
-    if ball.xcor() > 330 and ball.ycor() < paddle_2.ycor() + 50 and ball.ycor() > paddle_2.ycor() - 50:
+    if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         ball.dx *= -1
+        ball.setx(325)
         os.system("afplay bounce.wav&")
