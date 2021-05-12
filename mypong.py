@@ -10,13 +10,27 @@ from winsound import PlaySound, SND_ASYC
 
 # desenhar raquete
 def draw_paddle(paddle, x, y):
-    return (paddle.speed(),
-            paddle.shape("square"),
-            paddle.color("white"),
-            paddle.shapesize(stretch_wid=5, stretch_len=1),
-            paddle.penup(),
-            paddle.goto(x, y))
+    paddle.speed()
+    paddle.shape("square")
+    paddle.color("white")
+    paddle.shapesize(stretch_wid=5, stretch_len=1)
+    paddle.penup()
+    paddle.goto(x, y)
 
+# hitbox da raquete    
+def hitbox(paddle):
+    if ball.dy == 0:
+        ball.dy = 2
+
+    ball.dx *= -1
+
+    if (paddle.ycor() + 45 <= ball.ycor() <= paddle.ycor() + 50) or
+       (paddle.ycor() - 45 >= ball.ycor() >= paddle.ycor() - 50):
+            
+        ball.dy *= -1
+        
+    elif paddle.ycor() + 4 >= ball.ycor() >= paddle.ycor() - 4:
+        ball.dy = 0    
 
 # desenhar tela
 screen = turtle.Screen()
@@ -27,11 +41,11 @@ screen.tracer(0)
 
 # variaveis para raquete 1
 paddle_1 = turtle.Turtle()
-paddle_1_function = draw_paddle(paddle_1, -350, 0)
+draw_paddle(paddle_1, -350, 0)
 
 # variaveis para raquete 2
 paddle_2 = turtle.Turtle()
-paddle_2_function = draw_paddle(paddle_2, 350, 0)
+draw_paddle(paddle_2, 350, 0)
 
 # desenhar bola
 ball = turtle.Turtle()
@@ -140,24 +154,21 @@ while True:
     # colisão com raquete 1
 
     if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
-        ball.dx *= -1
+        hitbox(paddle_1)
         ball.setx(-325)
-        if ball.ycor() <= paddle_1.ycor() + 50 or ball.ycor() >= paddle_1.ycor() - 50:  # alterei aqui
-            ball.dy *= -1  # alterei aqui
         # Sound Exit
         os.system("afplay afplay bounce.wav&")  # On MAC
-        os.system("aplay afplay bounce.wav&")  # On Linux
+        os.system("aplay bounce.wav&")  # On Linux
         PlaySound("afplay bounce.wav", SND_ASYC)  # On Windows
 
     # colisão com raquete 2
     if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
-        ball.dx *= -1
+        hitbox(paddle_2)
         ball.setx(325)
-        if ball.ycor() <= paddle_2.ycor() + 50 or ball.ycor() >= paddle_2.ycor() - 50:  # alterei aqui
-            ball.dy *= -1 
+ 
         # Sound Exit
         os.system("afplay afplay bounce.wav&")  # On MAC
-        os.system("aplay afplay bounce.wav&")  # On Linux
+        os.system("aplay bounce.wav&")  # On Linux
         PlaySound("afplay bounce.wav", SND_ASYC)  # On Window
 
     # Anuncio de vitória
