@@ -24,9 +24,7 @@ def hitbox(paddle):
 
     ball.dx *= -1
 
-    if (paddle.ycor() + 45 <= ball.ycor() <= paddle.ycor() + 50) or
-       (paddle.ycor() - 45 >= ball.ycor() >= paddle.ycor() - 50):
-            
+    if (paddle.ycor() + 45 <= ball.ycor() <= paddle.ycor() + 50) or (paddle.ycor() - 45 >= ball.ycor() >= paddle.ycor() - 50):
         ball.dy *= -1
         
     elif paddle.ycor() + 4 >= ball.ycor() >= paddle.ycor() - 4:
