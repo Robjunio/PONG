@@ -134,6 +134,20 @@ screen.onkeypress(paddle_1_down, "s")
 screen.onkeypress(paddle_2_up, "Up")
 screen.onkeypress(paddle_2_down, "Down")
 
+first_screen = turtle.Turtle()
+first_screen.color("white")
+first_screen.write("PONG", align="center", font=("Press Start 2P", 50,
+                                                 "normal"))
+sleep(2)
+first_screen.clear()
+for i in range(3, 0, -1):
+    first_screen.write(i, align="center", font=("Press Start 2P", 42,
+                                                "normal"))
+    sleep(1)
+    first_screen.clear()
+
+first_screen.hideturtle()
+
 delay = 0.05
 
 while True:
