@@ -7,8 +7,23 @@
 import turtle
 import os
 from winsound import PlaySound, SND_ASYC
+from time import sleep
 
-# desenhar raquete
+
+# Sound exit.
+def sound(on_tap):
+    if on_tap == 1:
+        os.system("afplay bounce.wav&")  # On MAC
+        os.system("aplay bounce.wav&")  # On Linux
+        PlaySound("bounce.wav", SND_ASYNC)  # On Windows
+
+    else:
+        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")  # MAC
+        os.system("aplay 258020__kodack__arcade-bleep-sound.wav&")  # Linux
+        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYNC)  # Windows
+       
+
+# Draw paddle.
 def draw_paddle(paddle, x, y):
     paddle.speed()
     paddle.shape("square")
@@ -17,10 +32,11 @@ def draw_paddle(paddle, x, y):
     paddle.penup()
     paddle.goto(x, y)
 
-# hitbox da raquete    
+    
+# Hitbox of the paddle, and defining diferent reactions depending where the ball hits.  
 def hitbox(paddle):
     if ball.dy == 0:
-        ball.dy = 2
+        ball.dy = 10
 
     ball.dx *= -1
 
@@ -30,36 +46,37 @@ def hitbox(paddle):
     elif paddle.ycor() + 4 >= ball.ycor() >= paddle.ycor() - 4:
         ball.dy = 0    
 
-# desenhar tela
+        
+# Draw screen.
 screen = turtle.Screen()
 screen.title("My Pong")
 screen.bgcolor("black")
 screen.setup(width=800, height=600)
 screen.tracer(0)
 
-# variaveis para raquete 1
+# Defining the paddle 1.
 paddle_1 = turtle.Turtle()
 draw_paddle(paddle_1, -350, 0)
 
-# variaveis para raquete 2
+# Defining the paddle 2.
 paddle_2 = turtle.Turtle()
 draw_paddle(paddle_2, 350, 0)
 
-# desenhar bola
+# Draw the ball.
 ball = turtle.Turtle()
 ball.speed(0)
 ball.shape("square")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
-ball.dx = 2
-ball.dy = 2
+ball.dx = 10
+ball.dy = 10
 
-# pontuação
+# Points.
 score_1 = 0
 score_2 = 0
 
-# head-up display da pontuação
+# head-up display da pontuação.
 hud = turtle.Turtle()
 hud.speed(0)
 hud.shape("square")
@@ -70,7 +87,7 @@ hud.goto(0, 260)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
 
 
-# mover raquete 1
+# Movents of the paddle 1.
 def paddle_1_down():
     y = paddle_1.ycor()
     if y > -250:
@@ -89,7 +106,7 @@ def paddle_1_up():
     paddle_1.sety(y)
 
 
-# mover raquete 2
+# Moviments of the paddle 2.
 def paddle_2_up():
     y = paddle_2.ycor()
     if y < 250:
@@ -108,33 +125,36 @@ def paddle_2_down():
     paddle_2.sety(y)
 
 
-# mapeando as teclas
+# Mapping the keyboard.
 screen.listen()
 screen.onkeypress(paddle_1_up, "w")
 screen.onkeypress(paddle_1_down, "s")
 screen.onkeypress(paddle_2_up, "Up")
 screen.onkeypress(paddle_2_down, "Down")
 
+delay = 0.05
+
 while True:
     screen.update()
-
-    # movimentação da bola
+    slepp(delay)
+    
+    # Ball movements
     ball.setx(ball.xcor() + ball.dx)
     ball.sety(ball.ycor() + ball.dy)
 
-    # colisão com parede superior
+    # Colision with the upper wall.
     if ball.ycor() > 290:
-        os.system("afplay bounce.wav&")
+        sound(1)
         ball.sety(290)
         ball.dy *= -1
 
-    # colisão com parede inferior
+    # Colision with the downer wall.
     if ball.ycor() < -280:
-        os.system("afplay bounce.wav&")
+        sound(1)
         ball.sety(-280)
         ball.dy *= -1
 
-    # colisão com paredes laterais
+    # Colision with the sides walls.
     if ball.xcor() > 390 or ball.xcor() < -390:
         if ball.xcor() > 390:
             score_1 += 1
@@ -142,32 +162,29 @@ while True:
             score_2 += 1
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
-        # Sound Exit
-        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")  # On MAC
-        os.system("aplay 258020__kodack__arcade-bleep-sound.wav&")  # On Linux
-        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYC)  # On Windows
+        sound(0)
+        if ball.dy == 0:
+            ball.dy = 10
         ball.goto(0, 0)
+        delay = 0.05
         ball.dx *= -1
 
-    # colisão com raquete 1
+    # Colision with the paddle 1.
 
     if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
         hitbox(paddle_1)
         ball.setx(-325)
-        # Sound Exit
-        os.system("afplay afplay bounce.wav&")  # On MAC
-        os.system("aplay bounce.wav&")  # On Linux
-        PlaySound("afplay bounce.wav", SND_ASYC)  # On Windows
+        delay /= 1.25
+        
+        sound(1)
 
-    # colisão com raquete 2
+    # Colision with the paddle 2.
     if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
         hitbox(paddle_2)
         ball.setx(325)
+        delay /= 1.25
  
-        # Sound Exit
-        os.system("afplay afplay bounce.wav&")  # On MAC
-        os.system("aplay bounce.wav&")  # On Linux
-        PlaySound("afplay bounce.wav", SND_ASYC)  # On Window
+        sound(1)
 
     # Anuncio de vitória
     time_for_close = 500
@@ -176,9 +193,9 @@ while True:
             letter_win = ''
             time_for_close -= 1
             if score_1 == 11:
-                letter_win = '< venceu =)'
+                letter_win = '< You Win!'
             elif score_2 == 11:
-                letter_win = '=) venceu >>'
+                letter_win = 'You Win! >'
             winner_letter = turtle.Turtle()
             winner_letter.speed(0)
             winner_letter.shape("square")
