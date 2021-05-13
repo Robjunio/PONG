@@ -89,44 +89,44 @@ hud.goto(0, 260)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24, 
                                          "normal"))
 
-# Movents of the paddle 1.
-def paddle_1_down():
-    y = paddle_1.ycor()
+# Move up.
+def paddle_up(paddle):
+    y = paddle.ycor()
+    if y < 250:
+        y += 30
+    else:
+        y = 250
+    paddle.sety(y)
+
+
+# Move down.
+def paddle_down(paddle):
+    y = paddle.ycor()
     if y > -250:
-        y += -20
+        y += -30
     else:
         y = -250
-    paddle_1.sety(y)
+    paddle.sety(y)
 
 
+# Movements paddle 1.
 def paddle_1_up():
-    y = paddle_1.ycor()
-    if y < 250:
-        y += 20
-    else:
-        y = 250
-    paddle_1.sety(y)
+    paddle_up(paddle_1)
 
 
-# Moviments of the paddle 2.
+def paddle_1_down():
+    paddle_down(paddle_1)
+
+
+# Movements paddle 2.
 def paddle_2_up():
-    y = paddle_2.ycor()
-    if y < 250:
-        y += 20
-    else:
-        y = 250
-    paddle_2.sety(y)
+    paddle_up(paddle_2)
 
 
 def paddle_2_down():
-    y = paddle_2.ycor()
-    if y > -250:
-        y += -20
-    else:
-        y = -250
-    paddle_2.sety(y)
+    paddle_down(paddle_2)
 
-
+    
 # Mapping the keyboard.
 screen.listen()
 screen.onkeypress(paddle_1_up, "w")
@@ -178,7 +178,8 @@ while True:
                                      paddle_1.ycor() - 50:
         hitbox(paddle_1)
         ball.setx(-325)
-        delay /= 1.25
+        if delay > 0.001:
+            delay /= 1.25
         
         sound(1)
 
@@ -187,7 +188,8 @@ while True:
                                    paddle_2.ycor() - 50:
         hitbox(paddle_2)
         ball.setx(325)
-        delay /= 1.25
+        if delay > 0.001:
+            delay /= 1.25
  
         sound(1)
 
