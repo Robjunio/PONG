@@ -18,9 +18,9 @@ def sound(on_tap):
         PlaySound("bounce.wav", SND_ASYNC)  # On Windows
 
     else:
-        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")  # MAC
-        os.system("aplay 258020__kodack__arcade-bleep-sound.wav&")  # Linux
-        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYNC)  # Windows
+        os.system("afplay 258020__kodack__arcade-bleep-sound.wav&")  
+        os.system("aplay 258020__kodack__arcade-bleep-sound.wav&")  
+        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYNC)  
        
 
 # Draw paddle.
@@ -33,14 +33,16 @@ def draw_paddle(paddle, x, y):
     paddle.goto(x, y)
 
     
-# Hitbox of the paddle, and defining diferent reactions depending where the ball hits.  
+# Hitbox of the paddle, and defining diferent reactions depending 
+# where the ball hits.  
 def hitbox(paddle):
     if ball.dy == 0:
         ball.dy = 10
 
     ball.dx *= -1
 
-    if (paddle.ycor() + 45 <= ball.ycor() <= paddle.ycor() + 50) or (paddle.ycor() - 45 >= ball.ycor() >= paddle.ycor() - 50):
+    if (paddle.ycor() + 45 <= ball.ycor() <= paddle.ycor() + 50) or 
+       (paddle.ycor() - 45 >= ball.ycor() >= paddle.ycor() - 50):
         ball.dy *= -1
         
     elif paddle.ycor() + 4 >= ball.ycor() >= paddle.ycor() - 4:
@@ -84,8 +86,8 @@ hud.color("white")
 hud.penup()
 hud.hideturtle()
 hud.goto(0, 260)
-hud.write("0 : 0", align="center", font=("Press Start 2P", 24, "normal"))
-
+hud.write("0 : 0", align="center", font=("Press Start 2P", 24, 
+                                         "normal"))
 
 # Movents of the paddle 1.
 def paddle_1_down():
@@ -161,7 +163,8 @@ while True:
         elif ball.xcor() < -390:
             score_2 += 1
         hud.clear()
-        hud.write("{} : {}".format(score_1, score_2), align="center", font=("Press Start 2P", 24, "normal"))
+        hud.write("{} : {}".format(score_1, score_2), align="center", 
+                  font=("Press Start 2P", 24, "normal"))
         sound(0)
         if ball.dy == 0:
             ball.dy = 10
@@ -170,8 +173,9 @@ while True:
         ball.dx *= -1
 
     # Colision with the paddle 1.
-
-    if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > paddle_1.ycor() - 50:
+    
+    if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() > 
+                                     paddle_1.ycor() - 50:
         hitbox(paddle_1)
         ball.setx(-325)
         delay /= 1.25
@@ -179,31 +183,30 @@ while True:
         sound(1)
 
     # Colision with the paddle 2.
-    if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > paddle_2.ycor() - 50:
+    if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() > 
+                                   paddle_2.ycor() - 50:
         hitbox(paddle_2)
         ball.setx(325)
         delay /= 1.25
  
         sound(1)
 
-    # Anuncio de vitória
-    time_for_close = 500
+    # Victory condition.
     if score_1 == 11 or score_2 == 11:
-        while time_for_close > 0:
-            letter_win = ''
-            time_for_close -= 1
-            if score_1 == 11:
-                letter_win = '< You Win!'
-            elif score_2 == 11:
-                letter_win = 'You Win! >'
-            winner_letter = turtle.Turtle()
-            winner_letter.speed(0)
-            winner_letter.shape("square")
-            winner_letter.color("white")
-            winner_letter.penup()
-            winner_letter.hideturtle()
-            winner_letter.goto(0, 0)
-            winner_letter.write(letter_win, align="center", font=("Press Start 2P", 24, "normal"))
-
-        if time_for_close == 0:
-            break
+        letter_win = ''
+        if score_1 == 11:
+            letter_win = '< You Win!'
+        elif score_2 == 11:
+            letter_win = 'You Win! >'
+        winner_letter = turtle.Turtle()
+        winner_letter.speed(0)
+        winner_letter.shape("square")
+        winner_letter.color("white")
+        winner_letter.penup()
+        winner_letter.hideturtle()
+        winner_letter.goto(0, 0)
+        winner_letter.write(letter_win, align="center", 
+                            font=("Press Start 2P", 24, "normal"))
+        sleep(3)
+        break
+        
