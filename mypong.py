@@ -14,7 +14,7 @@ def sound(on_tap):
     else:
         # os.system("afplay 258020_kodack_arcade-bleep-sound.wav&")
         # os.system("aplay 258020_kodack_arcade-bleep-sound.wav&")
-        PlaySound("258020_kodack_arcade-bleep-sound.wav", SND_ASYNC)
+        PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYNC)
 
 
 # Draw paddle.
@@ -39,7 +39,7 @@ def hitbox(paddle):
             (paddle.ycor() - 35 > ball.ycor() >= paddle.ycor() - 50):
         ball.dy *= -1
 
-    elif paddle.ycor() + 4 >= ball.ycor() >= paddle.ycor() - 4:
+    elif paddle.ycor() + 5 >= ball.ycor() >= paddle.ycor() - 5:
         ball.dy = 0
 
 
@@ -50,6 +50,7 @@ screen.bgcolor("black")
 screen.setup(width=800, height=600)
 screen.tracer(0)
 
+
 # Defining the paddle 1.
 paddle_1 = turtle.Turtle()
 draw_paddle(paddle_1, -350, 0)
@@ -58,19 +59,22 @@ draw_paddle(paddle_1, -350, 0)
 paddle_2 = turtle.Turtle()
 draw_paddle(paddle_2, 350, 0)
 
+
 # Draw the ball.
 ball = turtle.Turtle()
 ball.speed(0)
-ball.shape("square")
+ball.shape("circle")
 ball.color("white")
 ball.penup()
 ball.goto(0, 0)
 ball.dx = 10
 ball.dy = 10
 
+
 # Points.
 score_1 = 0
 score_2 = 0
+
 
 # head-up display score.
 hud = turtle.Turtle()
@@ -82,7 +86,6 @@ hud.hideturtle()
 hud.goto(0, 260)
 hud.write("0 : 0", align="center", font=("Press Start 2P", 24,
                                          "normal"))
-
 
 # Move up.
 def paddle_up(paddle):
@@ -182,13 +185,12 @@ while True:
         ball.dx *= -1
 
     # Collision with the paddle 1.
-
     if -370 < ball.xcor() < -330 and paddle_1.ycor() + 50 > ball.ycor() >\
             paddle_1.ycor() - 50:
         hitbox(paddle_1)
         ball.setx(-325)
         if delay > 0.001:
-            delay /= 1.25
+            delay /= 1.20
 
         sound(1)
 
@@ -198,16 +200,16 @@ while True:
         hitbox(paddle_2)
         ball.setx(325)
         if delay > 0.001:
-            delay /= 1.25
+            delay /= 1.20
 
         sound(1)
 
     # Victory condition.
-    if score_1 == 11 or score_2 == 11:
+    if score_1 == 1 or score_2 == 1:
         letter_win = ''
-        if score_1 == 11:
+        if score_1 == 1:
             letter_win = '< You Win!'
-        elif score_2 == 11:
+        elif score_2 == 1:
             letter_win = 'You Win! >'
         winner_letter = turtle.Turtle()
         winner_letter.speed(0)
@@ -217,5 +219,6 @@ while True:
         winner_letter.hideturtle()
         winner_letter.goto(0, 0)
         winner_letter.write(letter_win, align="center", font=("Press Start 2P", 24, "normal"))
+        PlaySound("391539__mativve__electro-win-sound.wav", SND_ASYNC)
         sleep(3)
         break
