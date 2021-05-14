@@ -132,12 +132,15 @@ screen.onkeypress(paddle_1_down, "s")
 screen.onkeypress(paddle_2_up, "Up")
 screen.onkeypress(paddle_2_down, "Down")
 
+# Game menu
 first_screen = turtle.Turtle()
 first_screen.color("white")
 first_screen.write("PONG", align="center", font=("Press Start 2P", 50,
                                                  "normal"))
 sleep(2)
 first_screen.clear()
+
+# Time for start
 for i in range(3, 0, -1):
     first_screen.write(i, align="center", font=("Press Start 2P", 42,
                                                 "normal"))
@@ -205,11 +208,11 @@ while True:
         sound(1)
 
     # Victory condition.
-    if score_1 == 1 or score_2 == 1:
+    if score_1 == 11 or score_2 == 11:
         letter_win = ''
-        if score_1 == 1:
+        if score_1 == 11:
             letter_win = '< You Win!'
-        elif score_2 == 1:
+        elif score_2 == 11:
             letter_win = 'You Win! >'
         winner_letter = turtle.Turtle()
         winner_letter.speed(0)
