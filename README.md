@@ -19,37 +19,29 @@ Para Linux:
 Passo 1
 Abra o arquivo mypong.py em um editor, vá para a linha 2 do arquivo, você encontrará o seguinte comando:
 
-# import os
+**\# import os**
 
-Você deve remover o caractere '#' e o espaço antes da palavra import. A linha agora deve estar como abaixo:
-
-import os
+Você deve remover o caractere '#' e o espaço antes da palavra import.
 
 Agora vá para a linha 3 onde está o seguinte codigo:
 
-from winsound import PlaySound, SND_ASYNC
+**from winsound import PlaySound, SND_ASYNC**
 
-Você deve adicionar ao começo dessa linha o caractere '#' e um único espaço, a nova linha deve estar como abaixo:
-
-# from winsound import PlaySound, SND_ASYNC
+Você deve adicionar ao começo dessa linha o caractere '#' seguido por um único espaço.
 
 Passo 2
 Após isso vá para a linha 11, onde você encontrará o seguinte trecho:
 
-# os.system("aplay bounce.wav&")  # On Linux
+**\# os.system("aplay bounce.wav&")  # On Linux**
 
-Você precisa novamente remover o caractere '#' e o espaço. No fim você deve ter o seguinte resultado:
-
-os.system("aplay bounce.wav&")  # On Linux
+Você precisa novamente remover o caractere '#' e o espaço.
 
 Passo 3
 Agora na linha 12 você encontrará:
 
-PlaySound("bounce.wav", SND_ASYNC)  # On Windows
+**PlaySound("bounce.wav", SND_ASYNC)  # On Windows**
 
-Agora você deve adicionar o caractere '#' e um espaço no inicio da linha, o codigo deve ficar como o exemplo abaixo:
-
-# PlaySound("bounce.wav", SND_ASYNC)  # On Windows
+Agora você deve adicionar o caractere '#' no inicio da linha seguido por um espaço.
 
 Passo 4
 Nas linha 16 e 20 você encontrará algo muito parecido com conteudo da linha do passo 2, e você repetirá os mesmos passos do passo 2 em ambas as linhas de código.
@@ -68,20 +60,16 @@ Os passo aqui são identicos ao passo 1 da configuração para Linux.
 Passo 2
 Após isso vá para a linha 10, onde você encontrará o seguinte trecho:
 
-# os.system("afplay bounce.wav&")  # On MAC
+**\# os.system("afplay bounce.wav&")  # On MAC**
 
-Você precisa novamente remover o caractere '#' e o espaço. No fim você deve ter o seguinte resultado:
-
-os.system("afplay bounce.wav&")  # On MAC
+Você precisa novamente remover o caractere '#' e o espaço.
 
 Passo 3
 Agora na linha 12 você encontrará:
 
-PlaySound("bounce.wav", SND_ASYNC)  # On Windows
+**PlaySound("bounce.wav", SND_ASYNC)  # On Windows**
 
-Agora você deve adicionar o caractere '#' e um espaço no inicio da linha, o codigo deve ficar como o exemplo abaixo:
-
-# PlaySound("bounce.wav", SND_ASYNC)  # On Windows
+Agora você deve adicionar o caractere '#' no inicio da linha seguido por um espaço.
 
 Passo 4
 Nas linha 15 e 19 você encontrará algo muito parecido com conteudo da linha do passo 2, e você repetirá os mesmos passos do passo 2 em ambas as linhas de código.
