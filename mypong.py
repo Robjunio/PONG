@@ -6,17 +6,21 @@ from time import sleep
 
 # Sound exit.
 def sound(on_tap):
-    if on_tap == 1:
+    if on_tap == 'bounce':
         # os.system("afplay bounce.wav&")  # On MAC
         # os.system("aplay bounce.wav&")  # On Linux
         PlaySound("bounce.wav", SND_ASYNC)  # On Windows
 
-    else:
+    elif on_tap == 'goal':
         # os.system("afplay 258020_kodack_arcade-bleep-sound.wav&")
         # os.system("aplay 258020_kodack_arcade-bleep-sound.wav&")
         PlaySound("258020__kodack__arcade-bleep-sound.wav", SND_ASYNC)
-
-
+    else:
+        # os.system("afplay 391539__mativve__electro-win-sound.wav&")
+        # os.system("aplay 391539__mativve__electro-win-sound.wav&")
+        PlaySound("391539__mativve__electro-win-sound.wav", SND_ASYNC)
+        
+        
 # Draw paddle.
 def draw_paddle(paddle, x, y):
     paddle.speed()
@@ -161,13 +165,13 @@ while True:
 
     # Collision with the upper wall.
     if ball.ycor() > 290:
-        sound(1)
+        sound('bounce')
         ball.sety(290)
         ball.dy *= -1
 
     # Collision with the downer wall.
     if ball.ycor() < -280:
-        sound(1)
+        sound('bounce')
         ball.sety(-280)
         ball.dy *= -1
 
@@ -180,7 +184,7 @@ while True:
         hud.clear()
         hud.write("{} : {}".format(score_1, score_2), align="center",
                   font=("Press Start 2P", 24, "normal"))
-        sound(0)
+        sound('goal')
         if ball.dy == 0:
             ball.dy = 10
         ball.goto(0, 0)
@@ -195,7 +199,7 @@ while True:
         if delay > 0.001:
             delay /= 1.20
 
-        sound(1)
+        sound('bouce')
 
     # Collision with the paddle 2.
     if 370 > ball.xcor() > 330 and paddle_2.ycor() + 50 > ball.ycor() >\
@@ -205,7 +209,7 @@ while True:
         if delay > 0.001:
             delay /= 1.20
 
-        sound(1)
+        sound('bounce')
 
     # Victory condition.
     if score_1 == 11 or score_2 == 11:
@@ -222,6 +226,6 @@ while True:
         winner_letter.hideturtle()
         winner_letter.goto(0, 0)
         winner_letter.write(letter_win, align="center", font=("Press Start 2P", 24, "normal"))
-        PlaySound("391539__mativve__electro-win-sound.wav", SND_ASYNC)
+        sound('win')
         sleep(3)
         break
