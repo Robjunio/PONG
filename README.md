@@ -13,7 +13,7 @@ Comparado ao original, o seguinte codigo tem alguns diferenciais:
 - Otimização e formatação do código a PEP-8.
 
 # Recomendações:
-O jogo é para ser jogado em co-op, mas caso esteja sem alguém não se preocupe, o aplicativo do **Parsec** irá resolver esse problema. O parsec é uma ferramente que lhe permite utilizar o desktop de um amigo do seu próprio computador, abrindo a possibilidade do multiplayer online com o jogo.
+O jogo é para ser jogado em co-op, mas caso esteja sem alguém não se preocupe, o aplicativo do **Parsec** irá resolver esse problema. O parsec é uma ferramente que lhe permite utilizar o desktop de um amigo do seu próprio computador, abrindo a possibilidade do multiplayer online.
 
 
 # Observações:
