@@ -1,19 +1,19 @@
 # PONG! 
-No seguinte repositório, será feito a refatoração e debug do projeto PONG, de autoria do mestre Jucimar Silva Jr, 
-além disso haverá a inserção de novas funcionalidades para a melhoria da jogabilidade em geral.
+In the following repository, will be done the refactoring and debugging the PONG project, authored by  Jucimar Silva Jr.
+In addition there will be the insertion of new features to improve gameplay in general.
 
-A seguir será disponibilizado o link do repositório original [clicando aqui](https://github.com/jucimarjr/lpc_2021-2.git.)
+Next, the link to the original repository will be made available [clicking right here](https://github.com/jucimarjr/lpc_2021-2.git.)
 
-## Mudanças feitas:
-Comparado ao original, o seguinte codigo tem alguns diferenciais:
-- Correção do bug da raquete;
-- Melhoria da raquete;
-- Desenvolvimento de uma velocidade de jogo;
-- Inserção da condição de vitoria; 
-- Otimização e formatação do código a PEP-8.
+## Changes:
+Compared to the original, the following code has some differentials:
+- Corretion of the paddle bug;
+- Paddle inprovement;
+- Developing a game speed;
+- Inserting a winning condition; 
+- Optimization and formatting of the code to PEP-8.
 
-## Recomendação para usuários de Windows:
-O jogo é para ser jogado em co-op, mas caso esteja sem alguém não se preocupe, o aplicativo do **Parsec** irá resolver esse problema. O parsec é uma ferramente que lhe permite utilizar o desktop de um amigo do seu próprio computador, abrindo a possibilidade do multiplayer online.
+## Recommendation for Windows users:
+The game is to be played in co-op, but if you are without someone to play with, don't worry, the ** Parsec ** app will solve this problem. Parsec is a tool that allows you to use a friend's desktop from your own computer, opening up the possibility of online multiplayer.
 
 ### **Parsec tutorial**:
   - **Passo 1:** Install the parsec application [clicking right here](https://parsec.app/downloads),choose the per user installation type;
@@ -22,57 +22,57 @@ O jogo é para ser jogado em co-op, mas caso esteja sem alguém não se preocupe
   - **Passo 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time u maintain parsec open.
   - **Passo 5:** Now open the game, and play with your friends!
 
-## Observações:
-O jogo foi desenvolvido para atender os três principais sistemas operacionais (Linux, Mac, Windows). Se seu S.O for Linux ou Mac você precisará realizar pequenas alterações no código referentes ao áudio do jogo.
+## Observations:
+The game was developed to meet the three main operating systems (Linux, Mac, Windows). If your S.O is Linux or Mac you will need to make minor changes to the code for the game's audio.
 
-### Para Linux:
-  - **Passo 1:** Abra o arquivo mypong.py em um editor, vá para a linha 2 do arquivo, você encontrará o seguinte comando:
+### For Linux:
+  - **Step 1:** Open the mypong.py file in an editor, go to line 2 of the file, you will find the following command:
     ```
       # import os
     ```
-    Você deve remover o caractere '#' e o espaço antes da palavra import.
+    You must remove the character '#' and the space before the word import.
     
-  - **Passo 2:** Agora vá para a linha 3 onde está o seguinte codigo:
+  - **Step 2:** Now go to line 3 where the following code is:
      ```
       # from winsound import PlaySound, SND_ASYNC
     ```
-    Você deve adicionar ao começo dessa linha o caractere '#' seguido por um único espaço.
+    You must add the character '#' at the beginning of that line followed by a single space.
     
-  - **Passo 3:** Após isso vá para a linha 11, onde você encontrará o seguinte trecho:
+  - **Step 3:** After that, go to line 11, where you will find the following section:
     ```
      # os.system("aplay bounce.wav&")  # On Linux
     ```
-     Você precisa novamente remover o caractere '#' e o espaço.
+     You must again remove the '#' character and the space.
      
-  - **Passo 4:** Agora na linha 12 você encontrará:
+  - **Step 4:** Now on line 12 you will find:
     ```
      PlaySound("bounce.wav", SND_ASYNC)  # On Windows
     ```
-     Agora você deve adicionar o caractere '#' no inicio da linha seguido por um espaço.
+     You must now add the character '#' at the beginning of the line followed by a space.
      
-  - **Passo 5:** Nas linha 16 e 20 você encontrará algo muito parecido com conteudo da linha do passo 3, e você repetirá os mesmos passos do passo 2 em ambas as linhas de código.
+  - **Step 5:** In lines 16 and 20 you will find something very similar to the content of the line in step 3, and you will repeat the same steps from step 2 in both lines of code.
   
-  - **Passo 6:** Nas linha 17 e 21 você encontrará algo muito parecido com conteudo da linha do passo 4, e você repetirá os mesmos passos do passo 3 em ambas as linhas de código.
+  - **Step 6:** On lines 17 and 21 you will find something very similar to the content of the line in step 4, and you will repeat the same steps from step 3 in both lines of code.
   
-  - **Passo 7:** Salve as alterações e você já pode rodar o jogo.
+  - **Step 7:** Save your changes and you are ready to run the game.
 
-### Para o Mac:
-  - **Passo 1:** Os passo aqui são identicos ao passo 1 e 2 da configuração para Linux.
+### For Mac:
+  - **Step 1:** The steps here are identical to steps 1 and 2 of the configuration for Linux.
   
-  - **Passo 2:** Após isso vá para a linha 10, onde você encontrará o seguinte trecho:
+  - **Step 2:** After that, go to line 10, where you will find the following section:
     ```
       # os.system("afplay bounce.wav&")  # On MAC
     ```
-     Você precisa novamente remover o caractere '#' e o espaço.
+     You must again remove the '#' character and the space.
      
-  - **Passo 3:** Agora na linha 12 você encontrará:
+  - **Step 3:** Now on line 12 you will find:
     ```
       PlaySound("bounce.wav", SND_ASYNC)  # On Windows
     ```
-     Agora você deve adicionar o caractere '#' no inicio da linha seguido por um espaço.
+     You must now add the character '#' at the beginning of the line followed by a space.
      
-  - **Passo 4:** Nas linha 15 e 19 você encontrará algo muito parecido com conteudo da linha do passo 2, e você repetirá os mesmos passos do passo 2 em ambas as linhas de código.
+  - **Step 4:** In lines 15 and 19 you will find something very similar to the content of the line in step 2, and you will repeat the same steps from step 2 in both lines of code.
   
-  - **Passo 5:** Nas linha 17 e 21 você encontrará algo muito parecido com conteudo da linha do passo 3, e você repetirá os mesmos passos do passo 3 em ambas as linhas de código.
+  - **Step 5:** On lines 17 and 21 you will find something very similar to the content of the line from step 3, and you will repeat the same steps from step 3 on both lines of code.
   
-  - **Passo 6:** Salve as alterações e você já pode rodar o jogo.
+  - **Step 6:** Save your changes and you are ready to run the game.
