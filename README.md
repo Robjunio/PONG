@@ -2,7 +2,7 @@
 In the following repository, will be done the refactoring and debugging the PONG project, authored by  Jucimar Silva Jr.
 In addition there will be the insertion of new features to improve gameplay in general.
 
-Next, the link to the original repository will be made available [clicking right here](https://github.com/jucimarjr/lpc_2021-2.git.)
+Next, the link to the original repository will available [clicking right here](https://github.com/jucimarjr/lpc_2021-2.git.).
 
 ## Changes:
 Compared to the original, the following code has some differentials:
@@ -13,17 +13,17 @@ Compared to the original, the following code has some differentials:
 - Optimization and formatting the code to PEP-8.
 
 ## Recommendation for Windows users:
-The game is to be played in co-op, but if you are without someone to play with, don't worry, the ** Parsec ** app will solve this problem. Parsec is a tool that allows you to use a friend's desktop from your own computer, opening up the possibility of online multiplayer.
+The game is to be played in co-op, but if you are without someone to play with, don't worry, the **Parsec** app will solve this problem. Parsec is a tool that allows you to use a friend's desktop from your own computer, opening up the possibility of online multiplayer.
 
 ### **Parsec tutorial**:
-  - **Passo 1:** Install the parsec application [clicking right here](https://parsec.app/downloads),choose the per user installation type;
+  - **Passo 1:** Install the parsec application [clicking right here](https://parsec.app/downloads), choose the per user installation type;
   - **Passo 2:** Create an account in the parsec;
-  - **Passo 3:** In the application, add your friends to gain access to their desktops,when they open it;
-  - **Passo 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time u maintain parsec open.
+  - **Passo 3:** In the application, add your friends to gain access to their desktops, when they open it;
+  - **Passo 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time you maintain parsec open.
   - **Passo 5:** Now open the game, and play with your friends!
 
 ## Observations:
-The game was developed to meet the three main operating systems (Linux, Mac, Windows). If your S.O is Linux or Mac you will need to make minor changes to the code for the game's audio.
+The game was developed to meet the three main operating systems (Linux, Mac, Windows). If your O.S. is Linux or Mac you will need to make minor changes to the code for the game's audio.
 
 ### For Linux:
   - **Step 1:** Open the mypong.py file in an editor, go to line 2 of the file, you will find the following command:
