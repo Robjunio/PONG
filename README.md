@@ -10,7 +10,7 @@ Compared to the original, the following code has some differentials:
 - Paddle inprovement;
 - Developing a game speed;
 - Inserting a winning condition; 
-- Optimization and formatting of the code to PEP-8.
+- Optimization and formatting the code to PEP-8.
 
 ## Recommendation for Windows users:
 The game is to be played in co-op, but if you are without someone to play with, don't worry, the ** Parsec ** app will solve this problem. Parsec is a tool that allows you to use a friend's desktop from your own computer, opening up the possibility of online multiplayer.
