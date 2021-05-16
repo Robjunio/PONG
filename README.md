@@ -8,13 +8,13 @@ Next, the link to the original repository will available [clicking right here](h
 
 ## Table of Contents
 <!--ts-->
-   * [Description](##Description)
-   * [Table of Contents](##table-of-Contents);
-   * [Changes](##Changes);
-   * [How to play](##How-to-play);
-   * [Recomendation](##Recommendation-for-Windows-users);
-   * [Observations](##Observations);
-   * [Developers](##Developers);
+   * [Description](#Description)
+   * [Table of Contents](#table-of-Contents);
+   * [Changes](#Changes);
+   * [How to play](#How-to-play);
+   * [Recomendation](#Recommendation-for-Windows-users);
+   * [Observations](#Observations);
+   * [Developers](#Developers);
 <!--te-->
 
 ## Changes:
