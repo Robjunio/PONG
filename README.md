@@ -41,7 +41,13 @@ The game is to be played in co-op, but if you are without someone to play with, 
   - **Passo 2:** Create an account in the parsec;
   - **Passo 3:** In the application, add your friends to gain access to their desktops, when they open it;
   - **Passo 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time you maintain parsec open.
-  - **Passo 5:** Now open the game, and play with your friends!
+  - **Passo 5:** When someone tries to connect to your computer, you can allow it or denied it. 
+  - **Passo 6:** Press the icon of the guest and choose what he will be allowed to use.
+  - **Passo 7:** Now you are ready to play, have fun!
+  <p align="center">
+    <img src="https://i.imgur.com/Byae0Gf.png" alt="Passo 6" width="500"/>
+  </p>
+
 
 ## Observations:
 The game was developed to meet the three main operating systems (Linux, Mac, Windows). If your O.S. is Linux or Mac you will need to make minor changes to the code for the game's audio.
