@@ -37,13 +37,13 @@ Compared to the original, the following code has some differentials:
 The game is to be played in co-op, but if you are without someone to play with, don't worry, the **Parsec** app will solve this problem. Parsec is a tool that allows you to use a friend's desktop from your own computer, opening up the possibility of online multiplayer.
 
 ### **Parsec tutorial**:
-  - **Passo 1:** Install the parsec application [clicking right here](https://parsec.app/downloads), choose the per user installation type;
-  - **Passo 2:** Create an account in the parsec;
-  - **Passo 3:** In the application, add your friends to gain access to their desktops, when they open it;
-  - **Passo 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time you maintain parsec open.
-  - **Passo 5:** When someone tries to connect to your computer, you can allow it or denied it. 
-  - **Passo 6:** Press the icon of the guest and choose what he will be allowed to use.
-  - **Passo 7:** Now you are ready to play, have fun!
+  - **Step 1:** Install the parsec application [clicking right here](https://parsec.app/downloads), choose the per user installation type;
+  - **Step 2:** Create an account in the parsec;
+  - **Step 3:** In the application, add your friends to gain access to their desktops, when they open it;
+  - **Step 4:** In Computers, press share and will be disponibilize one link, which one you can share with your friends for they gain access to your Desktop for the time you maintain parsec open.
+  - **Step 5:** When someone tries to connect to your computer, you can allow it or denied it. 
+  - **Step 6:** Press the icon of the guest and choose what he will be allowed to use.
+  - **Step 7:** Now you are ready to play, have fun!
   <p align="center">
     <img src="https://i.imgur.com/Byae0Gf.png" alt="Passo 6" width="500"/>
   </p>
